@@ -1,0 +1,8 @@
+# Claude Code: user-local permissions, not shared with the team
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
