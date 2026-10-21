@@ -64,4 +64,33 @@ hidden, and filed as the next step in `PLAN.md`. Import syntax and load
 verification: see `AGENTS.md` rule 3 note.
 
 **Left open:** Not committed, not pushed — the five files are on disk only.
-Commit and push are waiting on you.
+Commit and push are waiting on you. *(Superseded by 003.)*
+
+## 003 — 2026-10-21 — commit and push the docs
+
+**Model:** `agentic` / Claude Code 2.1.299
+
+**Asked:** Commit and push the five new files.
+
+**Checked:** Staged by explicit filename rather than `git add -A`, then
+confirmed the index held exactly those five and nothing else. Before pushing
+to a public repo, the staged diff was scanned for leaked secrets and personal
+identifiers — gateway token, gateway host, university email, `gho_` tokens:
+
+```
+git diff --cached | grep -iE 'sk-[a-z0-9]{8,}|e-infra|vutbr|anthropic_auth_token|gho_'
+-> no matches
+```
+
+Push verified against the API rather than trusting the push output:
+
+```
+git ls-remote --heads origin                                   -> de910b1  refs/heads/main
+repo contents                                                  -> 7 files, all five docs present
+git log -1 --format='%an <%ae>' -> Michaela Roušová <michaela-rousova@users.noreply.github.com>
+```
+
+**Left open:** Commit author is still the login-only noreply address, not the
+canonical `<id>+<login>@...` form — unresolved since 001, and now inherited by
+a second commit. Also unverified from this side: whether `/context` lists
+`./AGENTS.md`, i.e. whether the import actually loads. Only you can run it.

@@ -16,6 +16,8 @@ project with one script and the working-rule docs.
   `README.md`, `PLAN.md`, `RUNS.md` created.
 - 2026-10-21 — `.claude/settings.local.json` gitignored so local permission
   approvals stay off the public repo.
+- 2026-10-21 — Docs committed and pushed as `de910b1`. Remote `main` verified
+  to carry all five files.
 
 ## Known-broken
 
